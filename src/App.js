@@ -31,25 +31,25 @@ function App() {
 
       <section className="listings-section">
         <h2 style={{ textAlign: 'center', marginTop: '40px', color: '#d4af37' }}>CURATED LISTINGS</h2>
+        
         <div className="listings-grid">
           {listings.map((house, index) => (
             <div key={index} className="property-card">
-              {/* FIXED: Changed mainImage to housePhoto */}
-              {house.housePhoto && (
+              {house.image && (
                 <img 
                   className="property-image"
-                  src={urlFor(house.housePhoto).url()} 
+                  src={urlFor(house.image).url()} 
                   alt={house.title} 
                 />
               )}
               <div className="property-info">
-                <h3>{house.houseName}</h3>
+                <h3>{house.title}</h3>
                 <p>{house.location}</p>
-                {/* Ensure house.price exists in Sanity for this to show */}
                 <p className="price">KES {house.price?.toLocaleString()}</p>
               </div>
             </div>
           ))}
+        </div>
       </section>
     </div>
   );
