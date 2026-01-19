@@ -33,7 +33,7 @@ function App() {
       {/* 2. HERO SECTION */}
       <header className="hero">
         <h1>High-Lane Homes & Allied</h1>
-        <p>CREATING THE EXTRAORDINARY</p>
+        
         <a href="#listings" className="cta-button">View Properties</a>
       </header>
 
