@@ -12,7 +12,8 @@ function App() {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    client.fetch('*[_type == "property"]')
+    // Adding { cache: 'no-store' } or a timestamp ensures freshness
+    client.fetch('*[_type == "property"]', {}, { cache: 'no-store' })
       .then((data) => setListings(data))
       .catch(console.error);
   }, []);
