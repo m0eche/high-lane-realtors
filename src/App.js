@@ -34,21 +34,22 @@ function App() {
         <div className="listings-grid">
           {listings.map((house, index) => (
             <div key={index} className="property-card">
-              {house.mainImage && (
+              {/* FIXED: Changed mainImage to housePhoto */}
+              {house.housePhoto && (
                 <img 
                   className="property-image"
-                  src={urlFor(house.mainImage).url()} 
+                  src={urlFor(house.housePhoto).url()} 
                   alt={house.title} 
                 />
               )}
               <div className="property-info">
-                <h3>{house.title}</h3>
+                <h3>{house.houseName}</h3>
                 <p>{house.location}</p>
+                {/* Ensure house.price exists in Sanity for this to show */}
                 <p className="price">KES {house.price?.toLocaleString()}</p>
               </div>
             </div>
           ))}
-        </div>
       </section>
     </div>
   );
