@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { client } from './sanityClient';
 import imageUrlBuilder from '@sanity/image-url';
+import './App.css';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -17,18 +18,38 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: '40px', textAlign: 'center', fontFamily: 'Arial' }}>
-      <h1>High-Lane Homes Listings</h1>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
-        {listings.map((house, index) => (
-          <div key={index} style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '10px', width: '250px' }}>
-            {house.mainImage && <img src={urlFor(house.mainImage).url()} alt={house.title} style={{ width: '100%', borderRadius: '8px' }} />}
-            <h2>{house.title}</h2>
-            <p>{house.location}</p>
-            <p><strong>${house.price}</strong></p>
-          </div>
-        ))}
-      </div>
+    <div className="App">
+      <nav className="nav">
+        <div className="logo">HIGH-LANE</div>
+        <div>Contact: +254...</div>
+      </nav>
+
+      <header className="hero">
+        <h1>High-Lane Homes & Allied</h1>
+        <p>CREATING THE EXTRAORDINARY</p>
+      </header>
+
+      <section className="listings-section">
+        <h2 style={{ textAlign: 'center', marginTop: '40px', color: '#d4af37' }}>CURATED LISTINGS</h2>
+        <div className="listings-grid">
+          {listings.map((house, index) => (
+            <div key={index} className="property-card">
+              {house.mainImage && (
+                <img 
+                  className="property-image"
+                  src={urlFor(house.mainImage).url()} 
+                  alt={house.title} 
+                />
+              )}
+              <div className="property-info">
+                <h3>{house.title}</h3>
+                <p>{house.location}</p>
+                <p className="price">KES {house.price?.toLocaleString()}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
