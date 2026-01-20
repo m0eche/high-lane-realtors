@@ -42,10 +42,7 @@ function App() {
         <div className="info-content">
           <h2>About High-Lane Homes</h2>
           <p>
-            With years of expertise in the Kenyan real estate market, 
-            High-Lane Homes & Allied specializes in connecting discerning clients with 
-            extraordinary properties. We believe that a home is more than just a 
-            building—it's a legacy.
+           High-Lane Homes is a licensed, EARB-registered property agency delivering end-to-end real estate solutions. Our services span property sales, lettings, and professional property management for both residential and commercial properties. We pride ourselves on market expertise, ethical practice, and personalized service, ensuring our clients enjoy peace of mind while achieving optimal returns on their property investments.
           </p>
         </div>
       </section>
