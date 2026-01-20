@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { client } from './sanityClient';
 import imageUrlBuilder from '@sanity/image-url';
 import './App.css';
+// 1. IMPORT LOGO
+import logo from './logo.png'; 
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -12,7 +14,7 @@ function App() {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    // Adding { cache: 'no-store' } or a timestamp ensures freshness
+    // Adding { cache: 'no-store' } ensures freshness
     client.fetch('*[_type == "property"]', {}, { cache: 'no-store' })
       .then((data) => setListings(data))
       .catch(console.error);
@@ -22,7 +24,10 @@ function App() {
     <div className="App">
       {/* 1. NAVIGATION */}
       <nav className="nav">
-        <div className="logo">HIGH-LANE</div>
+        <div className="logo">
+          {/* 2. LOGO IMAGE INSTEAD OF TEXT */}
+          <img src={logo} alt="High-Lane Logo" className="nav-logo" />
+        </div>
         <div className="nav-links">
           <a href="#listings">Listings</a>
           <a href="#about">About</a>
@@ -33,16 +38,18 @@ function App() {
       {/* 2. HERO SECTION */}
       <header className="hero">
         <h1>High-Lane Homes & Allied</h1>
-        
         <a href="#listings" className="cta-button">View Properties</a>
       </header>
 
-      {/* 3. ABOUT SECTION (New) */}
+      {/* 3. ABOUT SECTION */}
       <section id="about" className="info-section">
         <div className="info-content">
           <h2>About High-Lane Homes</h2>
           <p>
-           High-Lane Homes is a licensed, EARB-registered property agency delivering end-to-end real estate solutions. Our services span property sales, lettings, and professional property management for both residential and commercial properties. We pride ourselves on market expertise, ethical practice, and personalized service, ensuring our clients enjoy peace of mind while achieving optimal returns on their property investments.
+            High-Lane Homes is a licensed, EARB-registered property agency delivering end-to-end real estate solutions. 
+            Our services span property sales, lettings, and professional property management for both residential and 
+            commercial properties. We pride ourselves on market expertise, ethical practice, and personalized service, 
+            ensuring our clients enjoy peace of mind while achieving optimal returns on their property investments.
           </p>
         </div>
       </section>
@@ -60,7 +67,6 @@ function App() {
                 <h3>{house.title}</h3>
                 <p className="location-pin">📍 {house.location}</p>
                 <p className="price">KES {house.price?.toLocaleString()}</p>
-                {/* Replace 254700000000 with your mom's actual WhatsApp number */}
                 <a href={`https://wa.me/254721886637?text=I am interested in the ${house.title}`} className="inquire-btn" target="_blank" rel="noreferrer">
                   Inquire via WhatsApp
                 </a>
@@ -70,7 +76,7 @@ function App() {
         </div>
       </section>
 
-      {/* 5. CONTACT & FOOTER (New) */}
+      {/* 5. CONTACT & FOOTER */}
       <footer id="contact" className="contact-footer">
         <h2>Get In Touch</h2>
         <p>Ready to find your dream home? Contact our lead consultant today.</p>
@@ -83,6 +89,6 @@ function App() {
       </footer>
     </div>
   );
-} // <--- Add this bracket!
+}
 
 export default App;
