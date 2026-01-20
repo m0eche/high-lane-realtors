@@ -75,8 +75,8 @@ function App() {
         <h2>Get In Touch</h2>
         <p>Ready to find your dream home? Contact our lead consultant today.</p>
         <div className="contact-details">
-          <p>📞 +254 7XX XXX XXX</p>
-          <p>📧 info@highlanehomes.com</p>
+          <p>📞 +254 721886637 | +254 733400015</p>
+          <p>📧 highlanerealtors@gmail.com</p>
           <p>📍 Mombasa, Kenya</p>
         </div>
         <p className="copyright">© 2026 High-Lane Homes & Allied. All Rights Reserved.</p>
