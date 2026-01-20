@@ -118,3 +118,34 @@ body {
   background: var(--gold);
   color: #000;
 }
+/* --- MOBILE POLISH --- */
+@media (max-width: 768px) {
+  .nav {
+    height: 70px; /* Slightly shorter nav on mobile */
+    padding: 0 3%;
+  }
+
+  .logo-container {
+    max-width: 140px; /* Keep logo smaller on mobile */
+  }
+
+  .nav-logo {
+    max-height: 45px !important;
+  }
+
+  .nav-links a {
+    margin-left: 10px; /* Reduce gap between links */
+    font-size: 0.65rem; /* Smaller text to prevent wrapping */
+    letter-spacing: 0.5px;
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* Shrink hero text so it doesn't break into 4 lines */
+    padding: 0 10px;
+  }
+
+  .listings-grid {
+    grid-template-columns: 1fr; /* Stack houses in a single column on phones */
+    padding: 20px 5%;
+  }
+}
