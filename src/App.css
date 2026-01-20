@@ -3,37 +3,66 @@
   --dark: #0a0a0a;
   --light-gray: #f4f4f4;
   --glass: rgba(255, 255, 255, 0.03);
+  --serif: 'Playfair Display', serif;
+  --sans: 'Montserrat', sans-serif;
 }
 
 body {
   background-color: var(--dark);
   color: white;
-  font-family: 'Inter', -apple-system, sans-serif; /* Modern, clean font */
+  font-family: var(--sans); 
   margin: 0;
+  overflow-x: hidden; /* Prevents side-scrolling if the logo is too wide */
 }
 
-/* Nav Bar - Make it sticky and sleek */
+/* Nav Bar - Strict Height */
 .nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px 5%;
-  background: rgba(10, 10, 10, 0.95);
+  align-items: center; 
+  padding: 0 5%; /* Removed top/bottom padding to save space */
+  background: rgba(10, 10, 10, 0.98);
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 70px; /* This locks the header height */
+  overflow: hidden; /* This hides anything that tries to pop out of the nav */
 }
 
+/* --- THE LOGO FIX --- */
 .logo {
-  font-weight: 800;
-  letter-spacing: 4px;
-  color: var(--gold);
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  height: 100%; /* Makes the container match the nav height */
 }
 
-/* Hero Section - Better Spacing */
+.nav-logo {
+  max-height: 50px !important; /* Forces the height regardless of file size */
+  max-width: 150px !important; /* Ensures it doesn't spread horizontally */
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Rest of your styles remain the same... */
 .hero {
-  height: 60vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,51 +75,26 @@ body {
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
+  font-family: var(--serif);
+  font-size: 2.5rem;
 }
 
-/* Property Cards - The "Wow" Factor */
 .listings-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  padding: 50px 5%;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 40px 5%;
 }
 
 .property-card {
   background: var(--glass);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.property-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--gold);
 }
 
 .property-image {
   width: 100%;
-  height: 300px;
+  height: 250px;
   object-fit: cover;
-}
-
-.property-info {
-  padding: 25px;
-}
-
-.property-info h3 {
-  margin: 0 0 10px 0;
-  font-size: 1.5rem;
-  text-transform: capitalize;
-}
-
-.price {
-  color: var(--gold);
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-top: 15px;
 }
