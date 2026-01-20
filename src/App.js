@@ -61,7 +61,7 @@ function App() {
                 <p className="location-pin">📍 {house.location}</p>
                 <p className="price">KES {house.price?.toLocaleString()}</p>
                 {/* Replace 254700000000 with your mom's actual WhatsApp number */}
-                <a href={`https://wa.me/254721886637?text=I am interested in ${house.title}`} className="inquire-btn" target="_blank" rel="noreferrer">
+                <a href={`https://wa.me/254721886637?text=I am interested in the ${house.title}`} className="inquire-btn" target="_blank" rel="noreferrer">
                   Inquire via WhatsApp
                 </a>
               </div>
